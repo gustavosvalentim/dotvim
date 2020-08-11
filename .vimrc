@@ -69,15 +69,16 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 cmap w!! %!sudo tee > /dev/null
-nnoremap <C-s> :w<CR>
-nnoremap <C-v> "+p
-nnoremap <C-c> "+y
+inoremap <C-f> <ESC>/
+inoremap <C-s> <ESC>:w<CR>
+inoremap <C-v> <ESC>"+p
+vnoremap <C-c> "+y
+vnoremap <C-x> "+c
 
 set wildignore+=*/tmp/*,*.so,*.zip        " Unix
 set wildignore+=*\\tmp\\*,*.swp,*.exe     " Windows
 set wildignore+=*/.venv/*,*.pyc,*/node_modules/*
 set wildignore+=*\\.venv\\*,*\\node_modules\\*
-
 
 let js_filetypes = ['javascript', 'typescript']
 if index(js_filetypes, &filetype) != -1
